@@ -1,0 +1,164 @@
+[
+    {
+        "_id": "01",
+        "title": "Sony",
+        "img": "https://i.ibb.co/vz3v05P/Sony.webp",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/Wt1gfN3/2.jpg",
+                "name": "Sony Xperia XA1 Dual",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/Pmq1bxd/sony2.jpg",
+                "name": "Sony Xperia J",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    },
+    {
+        "_id": "02",
+        "title": "Oneplus",
+        "img": "https://i.ibb.co/CJxrfWm/Oneplus-newlogo-main-1584369675960.png",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/0GJXNfM/one1.webp",
+                "name": "OnePlus Nord N20 SE",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/zh43XPh/one2.jpg",
+                "name": "OnePlus Nord CE 5G",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    },
+    {
+        "_id": "03",
+        "title": "Samsung",
+        "img": "https://i.ibb.co/RBPYCCK/Samsung.jpg",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/bz3ctqR/sam1.jpg",
+                "name": "Samsung Galaxy A32",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/SvbkR1N/sam2.jpg",
+                "name": "Samsung Galaxy A04s",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    },
+    {
+        "_id": "04",
+        "title": "Xiaomi",
+        "img": "https://i.ibb.co/ySrpGn1/Xiami.jpg",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/9gThXvY/x1.jpg",
+                "name": "Xiaomi Redmi Note 11",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/kB5ZXnZ/x2.jpg",
+                "name": "Xiaomi 12 Pro",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    },
+    {
+        "_id": "05",
+        "title": "Iphone",
+        "img": "https://i.ibb.co/dG4nWrj/Iphone.webp",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/82hS0P6/i.jpg",
+                "name": "Iphone 12 pro",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/Yk5PXDF/i2.jpg",
+                "name": "Iphone 13",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    },
+    {
+        "_id": "06",
+        "title": "Huawei",
+        "img": "https://i.ibb.co/KwSXm0N/Huawei.webp",
+        "mobile": [
+            {
+                "image": "https://i.ibb.co/wQMbTjb/h1.webp",
+                "name": "Huawei P50 Pro",
+                "location": "Toronto",
+                "resalePrice": "23",
+                "originalPrice": "29",
+                "yearsOfUse": "2years",
+                "postedDate": "20-11-22",
+                "sellersName": "John"
+            },
+            {
+                "image": "https://i.ibb.co/Xzz1LBQ/huawei-nova-7i.jpg",
+                "name": "Huawei nova 7i ",
+                "location": "Sydney",
+                "resalePrice": "19",
+                "originalPrice": "23",
+                "yearsOfUse": "1.5years",
+                "postedDate": "20-11-22",
+                "sellersName": "Adams"
+            }
+        ]
+    }
+]
