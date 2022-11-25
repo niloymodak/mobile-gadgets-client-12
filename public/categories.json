@@ -1,6 +1,5 @@
 [
     {
-        "_id": "01",
         "title": "Sony",
         "img": "https://i.ibb.co/vz3v05P/Sony.webp",
         "mobile": [
@@ -27,7 +26,6 @@
         ]
     },
     {
-        "_id": "02",
         "title": "Oneplus",
         "img": "https://i.ibb.co/CJxrfWm/Oneplus-newlogo-main-1584369675960.png",
         "mobile": [
@@ -54,7 +52,6 @@
         ]
     },
     {
-        "_id": "03",
         "title": "Samsung",
         "img": "https://i.ibb.co/RBPYCCK/Samsung.jpg",
         "mobile": [
@@ -81,7 +78,6 @@
         ]
     },
     {
-        "_id": "04",
         "title": "Xiaomi",
         "img": "https://i.ibb.co/ySrpGn1/Xiami.jpg",
         "mobile": [
@@ -108,7 +104,6 @@
         ]
     },
     {
-        "_id": "05",
         "title": "Iphone",
         "img": "https://i.ibb.co/dG4nWrj/Iphone.webp",
         "mobile": [
@@ -135,7 +130,6 @@
         ]
     },
     {
-        "_id": "06",
         "title": "Huawei",
         "img": "https://i.ibb.co/KwSXm0N/Huawei.webp",
         "mobile": [

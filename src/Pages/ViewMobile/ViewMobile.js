@@ -1,19 +1,26 @@
 // import { data } from 'autoprefixer';
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BookingModal from '../Home/BookingModal/BookingModal';
+import Loading from '../Shared/Loading/Loading';
 
 const ViewMobile = () => {
     const { id } = useParams();
-    const [categories, setCategories] = useState([]);
     const [phone, setPhone] = useState({});
-    useEffect(() => {
-        fetch('/categories.json')
+
+    const { data: categories = [], refetch, isLoading } = useQuery({
+        queryKey: ['categories'],
+        queryFn: () => fetch('http://localhost:5000/v2/categories')
             .then(res => res.json())
-            .then(data => setCategories(data))
-    }, [])
+    })
+
     const mobiles = categories?.find(data => data._id === id)
     // console.log(mobiles?.mobile);
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='flex justify-center gap-4 mt-5 ml-'>
@@ -42,6 +49,7 @@ const ViewMobile = () => {
                             <BookingModal
                                 phone={phone}
                                 setPhone={setPhone}
+                                refetch={refetch}
                             ></BookingModal>
                         }
                     </div>
