@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import AddedMobile from "../../Pages/Dashboard/AddedMobile/AddedMobile";
 import AddMobile from "../../Pages/Dashboard/AddMobile/AddMobile";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
@@ -31,13 +32,18 @@ const router = createBrowserRouter([
             },
             {
                 path: '/viewmobile/:id',
-                element: <ViewMobile></ViewMobile>,
+                element: <PrivateRoute><ViewMobile></ViewMobile></PrivateRoute>,
                 // loader: ({ params }) => fetch(`http://localhost:5000/categories/${params._id}`)
             },
             {
                 path: '/addmobile',
                 element: <AddMobile></AddMobile>
             },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+
         ]
     },
     {
