@@ -22,7 +22,6 @@ const AddMobile = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
-                    // console.log(imgData.data.url)
                     const mobile = {
                         name: data.name,
                         email: data.email,
@@ -89,21 +88,6 @@ const AddMobile = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.price.message}</p>}
                     </div>
-                    {/* <div className="form-control w-full max-w-xs">
-                <label className="label"> <span className="label-text">Brand</span></label>
-                <select
-                    {...register('specialty')}
-                    className="select input-bordered w-full max-w-xs">
-                    {
-                        specialties.map(specialty => <option
-                            key={specialty._id}
-                            value={specialty.name}
-                        >{specialty.name}</option>)
-                    }
-
-
-                </select>
-            </div> */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Photo</span></label>
                         <input type="file" {...register("image", {

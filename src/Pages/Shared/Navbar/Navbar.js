@@ -13,15 +13,23 @@ const Navbar = () => {
     }
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/addmobile">Add A Mobile</Link></li>
+
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="*">Contact</Link></li>
+        <div className="dropdown dropdown-hover">
+            <label tabIndex={0} className="btn btn-ghost m-1">Options</label>
+            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 w-52">
+                <li><Link to="/addmobile">Add A Mobile(Seller)</Link></li>
+                <li><Link to="/">Buy A Mobile(Buyer)</Link></li>
+            </ul>
+        </div>
         {user?.uid ?
             <>
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><button onClick={handleLogOut}>Sign out</button></li>
             </>
             : <li><Link to="/login">Login</Link></li>}
+
     </React.Fragment>
     return (
         <div className="navbar bg-base-100 flex justify-between">

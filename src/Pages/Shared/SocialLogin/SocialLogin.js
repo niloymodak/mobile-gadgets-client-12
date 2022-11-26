@@ -1,24 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useToken from '../../../hooks/useToken';
 
 const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [googleLoginError, setGoogleLoginError] = useState('');
+    const [googleLoginEmail, setGoogleLoginEmail] = useState('');
+    const [token] = useToken(googleLoginEmail);
 
 
     const from = location.state?.from?.pathname || '/';
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
+    const handleGoogleSignIn = data => {
+        setGoogleLoginError('')
+        googleSignIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // setAuthToken(user);
-                navigate(from, { replace: true });
+                setGoogleLoginEmail(data.email)
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err)
+                setGoogleLoginError(err.message)
+            });
     }
     return (
         <div>
