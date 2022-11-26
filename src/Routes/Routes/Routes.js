@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
+import Contact from "../../Pages/Contact/Contact";
 import AddedMobile from "../../Pages/Dashboard/AddedMobile/AddedMobile";
 import AddMobile from "../../Pages/Dashboard/AddMobile/AddMobile";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AddedMobile></AddedMobile></AdminRoute>
             },
         ]
+    },
+    {
+        path: '*',
+        element: <Contact></Contact>
     }
 ])
 
