@@ -29,8 +29,8 @@ const BookedMobile = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Model</th>
+                            <th>Phone</th>
                             <th>Price</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +39,7 @@ const BookedMobile = () => {
                                 <th>{i + 1}</th>
                                 <td>{booking.name}</td>
                                 <td>{booking.model}</td>
+                                <td>{booking.phone}</td>
                                 <td>${booking.resalePrice}</td>
                             </tr>)
                         }

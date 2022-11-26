@@ -21,7 +21,8 @@ const DashboardLayout = () => {
                         <li><Link to="/dashboard">Booked Mobile</Link></li>
                         {
                             isAdmin && <>
-                                <li><Link to="/dashboard/allusers">All users</Link></li>
+                                <li><Link to="/dashboard/addedmobiles">Added Mobile</Link></li>
+                                <li><Link to="/dashboard/allusers">AllUsers</Link></li>
                             </>
                         }
 
