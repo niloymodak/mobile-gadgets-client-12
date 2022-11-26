@@ -30,7 +30,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => { })
-                saveUser(data.name, data.email)
+                saveUser(data.name, data.email, data.role)
             })
             .catch(error => {
                 console.log(error)
@@ -38,8 +38,8 @@ const SignUp = () => {
             });
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -82,6 +82,15 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
+
+                    <div>
+                        <select className='select select-bordered w-full max-w-xs mt-5' {...register("role")}>
+                            <option value="seller">Seller</option>
+                            <option value="buyer">Buyer</option>
+                        </select>
+
+                    </div>
+
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>

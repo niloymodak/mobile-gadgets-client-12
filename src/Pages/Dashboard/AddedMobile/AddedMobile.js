@@ -72,7 +72,7 @@ const AddedMobile = () => {
                     </thead>
                     <tbody>
                         {
-                            mobiles?.map((mobile, i) => <tr key={mobile._id}>
+                            mobiles?.length && mobiles?.map((mobile, i) => <tr key={mobile._id}>
                                 <th>{i + 1}</th>
                                 <td><div className="avatar">
                                     <div className="w-24 rounded-full">

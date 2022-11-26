@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/NavbarLogo.jpg'
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
+    const [isAdmin] = useAdmin(user?.email)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -13,22 +14,40 @@ const Navbar = () => {
     }
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
-
+        {
+            isAdmin.role === 'admin' &&
+            <>
+                <li><Link to="/myorders">My orders</Link></li>
+                <li><Link to="/addmobile">Add A Mobile</Link></li>
+                <li><Link to="/addedmobiles">Added Mobile</Link></li>
+                <li><Link to="">My buyers</Link></li>
+            </>
+        }
+        {
+            isAdmin.role === 'buyer' &&
+            <li><Link to="/myorders">My orders</Link></li>
+        }
+        {
+            isAdmin.role === 'seller' &&
+            <>
+                <li><Link to="/addmobile">Add A Mobile</Link></li>
+                <li><Link to="/addedmobiles">Added Mobile</Link></li>
+                <li><Link to="">My buyers</Link></li>
+            </>
+        }
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="*">Contact</Link></li>
-        <div className="dropdown dropdown-hover">
-            <label tabIndex={0} className="btn btn-ghost m-1">Options</label>
-            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 w-52">
-                <li><Link to="/addmobile">Add A Mobile(Seller)</Link></li>
-                <li><Link to="/">Buy A Mobile(Buyer)</Link></li>
-            </ul>
-        </div>
         {user?.uid ?
             <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                {isAdmin.role === 'admin' &&
+                    <li><Link to="/dashboard/allusers">Dashboard</Link></li>
+                }
+
                 <li><button onClick={handleLogOut}>Sign out</button></li>
             </>
-            : <li><Link to="/login">Login</Link></li>}
+            : <li><Link to="/login">Login</Link></li>
+        }
+
 
     </React.Fragment>
     return (

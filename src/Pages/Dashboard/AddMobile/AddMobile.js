@@ -42,7 +42,7 @@ const AddMobile = () => {
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`);
-                            navigate('/')
+                            navigate('/addedmobiles')
                         })
 
                 }

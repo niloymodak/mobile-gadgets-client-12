@@ -41,29 +41,28 @@ const router = createBrowserRouter([
                 element: <AddMobile></AddMobile>
             },
             {
+                path: '/addedmobiles',
+                element: <AddedMobile></AddedMobile>
+            },
+            {
                 path: '/blog',
                 element: <Blog></Blog>
             },
-
+            {
+                path: '/myorders',
+                element: <BookedMobile></BookedMobile>
+            },
         ]
     },
     {
-        path: '/dashboard',
+        path: '/dashboard/allusers',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
-            {
-                path: '/dashboard',
-                element: <BookedMobile></BookedMobile>
-            },
             {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
 
-            {
-                path: '/dashboard/addedmobiles',
-                element: <AdminRoute><AddedMobile></AddedMobile></AdminRoute>
-            },
         ]
     },
     {
