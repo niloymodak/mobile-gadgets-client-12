@@ -1,11 +1,26 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({ booking }) => {
     const [cardError, setCardError] = useState('');
+    const [clientSecret, setClientSecret] = useState("");
     const stripe = useStripe();
     const elements = useElements();
-    const { price, email, patient, _id } = booking;
+    const { resalePrice, email, model, _id } = booking;
+
+
+    useEffect(() => {
+        fetch("http://localhost:5000/create-payment-intent", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ resalePrice }),
+        })
+            .then((res) => res.json())
+            .then((data) => setClientSecret(data.clientSecret));
+    }, [resalePrice]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,6 +43,18 @@ const CheckoutForm = ({ booking }) => {
             setCardError('');
         }
 
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: model,
+                        email: email
+                    },
+                },
+            },
+        );
     }
 
     return (
