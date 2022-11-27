@@ -9,6 +9,8 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import BookedMobile from "../../Pages/Dashboard/BookedMobile/BookedMobile";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Payment from "../../Pages/Payment/Payment";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../Pages/SignUp/SignUp";
 import ViewMobile from "../../Pages/ViewMobile/ViewMobile";
 import AdminRoute from "../AdminRoute/AdminRoute";
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -52,11 +55,17 @@ const router = createBrowserRouter([
                 path: '/myorders',
                 element: <BookedMobile></BookedMobile>
             },
+            {
+                path: '/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            },
         ]
     },
     {
         path: '/dashboard/allusers',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboard/allusers',
