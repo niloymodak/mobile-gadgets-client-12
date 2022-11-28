@@ -30,17 +30,18 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn m-1">For Buyer</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/myorders">My orders</Link></li>
+                        <li><Link to="/WishList">WishList</Link></li>
                     </ul>
                 </div>
-
-
-
-
             </>
         }
         {
             isAdmin.role === 'buyer' &&
-            <li><Link to="/myorders">My orders</Link></li>
+            <>
+                <li><Link to="/myorders">My orders</Link></li>
+                <li><Link to="/WishList">WishList</Link></li>
+            </>
+
         }
         {
             isAdmin.role === 'seller' &&
