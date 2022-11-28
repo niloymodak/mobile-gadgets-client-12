@@ -4,7 +4,7 @@ import CategoriesCard from './CategoriesCard';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://mobile-gadgets-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])

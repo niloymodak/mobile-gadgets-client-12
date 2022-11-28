@@ -16,7 +16,7 @@ const AddedMobile = () => {
         queryKey: ['mobiles'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/mobiles', {
+                const res = await fetch('https://mobile-gadgets-server.vercel.app/mobiles', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -31,7 +31,7 @@ const AddedMobile = () => {
     });
 
     const handleDeleteMobile = mobile => {
-        fetch(`http://localhost:5000/mobiles/${mobile._id}`, {
+        fetch(`https://mobile-gadgets-server.vercel.app/mobiles/${mobile._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

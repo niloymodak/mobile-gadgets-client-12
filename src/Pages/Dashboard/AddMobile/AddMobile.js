@@ -33,7 +33,7 @@ const AddMobile = () => {
                         description: data.description,
                         condition: data.condition
                     }
-                    fetch('http://localhost:5000/mobiles', {
+                    fetch('https://mobile-gadgets-server.vercel.app/mobiles', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

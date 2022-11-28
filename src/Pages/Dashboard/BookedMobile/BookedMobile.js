@@ -13,7 +13,7 @@ const BookedMobile = () => {
         setDeletingMobile(null);
     }
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://mobile-gadgets-server.vercel.app/bookings?email=${user?.email}`;
 
     const { data: bookings = [], refetch } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -28,7 +28,7 @@ const BookedMobile = () => {
         }
     })
     const handleDeleteMobile = mobile => {
-        fetch(`http://localhost:5000/mobile/${mobile._id}`, {
+        fetch(`https://mobile-gadgets-server.vercel.app/mobile/${mobile._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

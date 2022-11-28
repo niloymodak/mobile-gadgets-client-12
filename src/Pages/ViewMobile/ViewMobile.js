@@ -13,7 +13,7 @@ const ViewMobile = () => {
 
     const { data: categories = [], refetch, isLoading } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/v2/categories')
+        queryFn: () => fetch('https://mobile-gadgets-server.vercel.app/v2/categories')
             .then(res => res.json())
     })
 
