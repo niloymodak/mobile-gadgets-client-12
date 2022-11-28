@@ -1,9 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
+import Loading from '../../Shared/Loading/Loading';
 
 const AllUsers = () => {
-    const { data: users = [], refetch } = useQuery({
+    const [deletingUser, setDeletingUser] = useState(null);
+
+    const closeModal = () => {
+        setDeletingUser(null);
+    }
+
+
+    const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
@@ -11,6 +20,24 @@ const AllUsers = () => {
             return data;
         }
     });
+
+
+    const handleDeleteUser = user => {
+        fetch(`http://localhost:5000/user/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success(`User ${user.name} deleted successfully`)
+                }
+            })
+    }
+
 
     const handleMakeAdmin = id => {
         fetch(`http://localhost:5000/users/admin/${id}`, {
@@ -26,7 +53,13 @@ const AllUsers = () => {
                     toast.success('Make admin successful.')
                     refetch();
                 }
-            })
+            });
+
+
+        if (isLoading) {
+            return <Loading></Loading>
+        }
+
     }
     return (
         <div>
@@ -49,13 +82,26 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-                                <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td>
+                                    <label onClick={() => setDeletingUser(user)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
+                                </td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {
+                deletingUser && <ConfirmationModal
+                    title={`Are you sure you want to delete?`}
+                    message={`If you delete ${deletingUser.name}. It cannot be undone.`}
+                    successAction={handleDeleteUser}
+                    successButtonName="Delete"
+                    modalData={deletingUser}
+                    closeModal={closeModal}
+                >
+                </ConfirmationModal>
+            }
         </div>
     );
 };
