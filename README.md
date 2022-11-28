@@ -2,7 +2,7 @@ Short information of this website
 
 =>Website name: Take A Trip
  
-=>Live site link: 
+=>Live site link: https://mobile-gadgets-908d1.web.app
 
 => I use a framework which name is tailwind
 => Hosting and Deploy in firebase
