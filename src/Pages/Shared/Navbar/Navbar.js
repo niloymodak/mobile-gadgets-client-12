@@ -14,13 +14,28 @@ const Navbar = () => {
     }
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
         {
             isAdmin.role === 'admin' &&
             <>
-                <li><Link to="/myorders">My orders</Link></li>
-                <li><Link to="/addmobile">Add A Mobile</Link></li>
-                <li><Link to="/addedmobiles">Added Mobile</Link></li>
-                <li><Link to="">My buyers</Link></li>
+                <div className="dropdown dropdown-hover">
+                    <label tabIndex={0} className="btn m-1">For Seller</label>
+                    <ul tabIndex={0} className="dropdown-content menu shadow bg-base-100 rounded-box w-52">
+                        <li><Link to="/addmobile">Add A Mobile</Link></li>
+                        <li><Link to="/addedmobiles">Added Mobile</Link></li>
+                        <li><Link to="*">My buyers</Link></li>
+                    </ul>
+                </div>
+                <div className="dropdown dropdown-hover">
+                    <label tabIndex={0} className="btn m-1">For Buyer</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link to="/myorders">My orders</Link></li>
+                    </ul>
+                </div>
+
+
+
+
             </>
         }
         {
@@ -35,8 +50,7 @@ const Navbar = () => {
                 <li><Link to="">My buyers</Link></li>
             </>
         }
-        <li><Link to="/blog">Blog</Link></li>
-        <li><Link to="*">Contact</Link></li>
+
         {user?.uid ?
             <>
                 {isAdmin.role === 'admin' &&
