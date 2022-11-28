@@ -48,7 +48,7 @@ const Navbar = () => {
             <>
                 <li><Link to="/addmobile">Add A Mobile</Link></li>
                 <li><Link to="/addedmobiles">Added Mobile</Link></li>
-                <li><Link to="">My buyers</Link></li>
+                <li><Link to="*">My buyers</Link></li>
             </>
         }
 

@@ -67,6 +67,9 @@ const AddedMobile = () => {
                             <th>Brand</th>
                             <th>Model</th>
                             <th>Price</th>
+                            <th>Condition</th>
+                            <th>Location</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -84,6 +87,9 @@ const AddedMobile = () => {
                                 <td>{mobile.brand}</td>
                                 <td>{mobile.model}</td>
                                 <td>{mobile.price}</td>
+                                <td>{mobile.condition}</td>
+                                <td>{mobile.location}</td>
+                                <td>{mobile.description}</td>
                                 <td>
                                     <label onClick={() => setDeletingMobile(mobile)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>
