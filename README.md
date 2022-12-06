@@ -1,6 +1,6 @@
 Short information of this website
 
-=>Website name: Take A Trip
+=>Website name: Mobile Gadgets
  
 =>Live site link: https://mobile-gadgets-908d1.web.app
 
