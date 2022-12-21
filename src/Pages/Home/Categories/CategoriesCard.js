@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CategoriesCard = ({ category }) => {
     const { _id, img, title } = category;
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl ml-3">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl ml-3 sm:m-auto">
             <img src={img} style={{ objectFit: 'cover' }} alt="" />
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
